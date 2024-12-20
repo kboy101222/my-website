@@ -1,14 +1,10 @@
-version: '3.3'
-
 services:
   django:
     container_name: django_server
     build: .
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app/my-website
     ports:
       - "8000:80"
-    env_file:
-      - .env
-    restart: unless_stopped
+    restart: unless-stopped
