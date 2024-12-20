@@ -3,3 +3,5 @@ django-environ>=0.7
 django_bootstrap_icons
 django-bootstrap-v5
 Pillow
+django-extensions
+Werkzeug
