@@ -1,0 +1,18 @@
+{% extends "recipebook/master.html" %}
+
+{% block content %}
+{% load recipebook_tags %}
+<div class="container">
+    <h3>{{ recipe_info.recipe_name }}</h3>
+    <div class="containter" id="ingredient_list">
+        <ul class="list-group">
+        {% for ingredient in ingredients %}
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" id="{{ ingredient.ingredient_name|nospaces }}">
+                <label class="form-check-label stretched-link" for="{{ ingredient.ingredient_name|nospaces }}">{{ ingredient.measurement|measurement:ingredient.amount }} {{ ingredient.ingredient_name }}</label>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

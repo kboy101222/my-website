@@ -12,12 +12,12 @@ class RecipeStepsInline(admin.TabularInline):
     model = RecipeStep
     extra = 2
     formfields_overrides = {
-        models.CharField: {'widget': Textarea(attrs={'rows':20, 'cols':10})}
+        models.CharField: {'widget': Textarea()}
     }
 
 class RecipeAdmin(admin.ModelAdmin):
     fieldsets = [
-        ("Recipe Info", {"fields": ["recipe_name", "date_added", "recipe_desc", "amt_served", "recipe_img"]}),
+        ("Recipe Info", {"fields": ["recipe_name", "recipe_type", "date_added", "recipe_desc", "amt_served", "recipe_img"]}),
     ]
     inlines = [IngredientsInline, RecipeStepsInline] 
 

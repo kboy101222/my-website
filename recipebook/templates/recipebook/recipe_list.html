@@ -3,6 +3,37 @@
 {% block title %}Recipe Book{% endblock title %}
 
 {% block content %}
-{% load bootstrap-icons %}
-
+{% load bootstrap_icons %}
+{% load recipebook_tags %}
+<div class="container">
+    <h3>All Recipies:</h3>
+        <ul class="list-group">
+            {% for item in recipe_list %}
+            <a class="list-group-item list-group-item-action" href={% url "recipebook:recipe" item.id %}>{{ item.recipe_name }}
+                {% if item.recipe_type != "not_set" %}
+                <span class="badge text-bg-primary float-end">
+                    {{ item.recipe_type|format }}
+                    {% if item.recipe_type == "dinner" %}
+                        {% bs_icon "moon-stars-fill" %}
+                    {% elif item.recipe_type == "lunch" %}
+                        {% bs_icon "brightness-high-fill" %}
+                    {% elif item.recipe_type == "breakfast" %}
+                        {% bs_icon "brightness-alt-high-fill" %}
+                    {% elif item.recipe_type == "dessert" %}
+                        {% bs_icon "box2-heart-fill" %}
+                    {% elif item.recipe_type == "large_group" %}
+                        {% bs_icon "people-fill" %}
+                    {% elif item.recipe_type == "holiday" %}
+                        {% bs_icon "snow" %}
+                    {% elif item.recipe_type == "snack" %}
+                        {% bs_icon "person-arms-up" %}
+                    {% endif %}
+                </span>
+                {% endif %}
+                <br>
+                <span class="text-muted fs-6">{{ item.recipe_desc }}</span>
+            </a>
+            {% endfor %}
+        </ul>
+</div>
 {% endblock content %}
