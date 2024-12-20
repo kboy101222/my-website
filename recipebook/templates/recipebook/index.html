@@ -1,0 +1,22 @@
+{% extends "recipebook/master.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+{% load bootstrap_icons %}
+<div class="container">
+    <h1>{% bs_icon "gift" %} Merry Christmas! {% bs_icon "gift" %}</h1>
+    <p>I decided to put my degree to use for once and make you (and I guess everyone else) this website to store our favorite recipes!</p>
+    <p>The website should look good on computers, iPads, phones, and just about anything else with a screen. I hope to get around to adding the following features, though I don't promise they're all ready:</p>
+    <ul>
+        <li>{% bs_icon 'square' %} Recipe Search</li>
+        <li>{% bs_icon 'square' %} Random Recipe</li>
+        <li>{% bs_icon 'square' %} Unit Conversions</li>
+        <li>{% bs_icon 'square' %} Save recipes from other sites</li>
+        <li>{% bs_icon 'square' %} Generate a shopping list for big meals</li>
+        <li>{% bs_icon 'square' %} Add recipes by uploading a picture (this won't be ready but I do want to add it)</li>
+    </ul>
+
+    <span><a class="btn btn-success" href="{% url "recipebook:recipe_list" %}">Click Here</a> or click "Recipes" in the top bar to begin scrolling through recipes!</span>
+</div>
+{% endblock content %}
